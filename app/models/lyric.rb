@@ -9,7 +9,7 @@
 #
 
 class Lyric < ActiveRecord::Base
-  attr_accessible :topic_id
+  attr_accessible :topic_id, :title
   has_many :lyric_versions
   has_many :lyric_lines
   belongs_to :topic

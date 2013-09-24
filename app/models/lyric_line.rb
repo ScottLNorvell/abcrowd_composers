@@ -15,4 +15,5 @@
 class LyricLine < ActiveRecord::Base
   attr_accessible :likes, :lyric_id, :order_number, :text, :version_number
   belongs_to :lyric
+  has_and_belongs_to_many :lyric_versions
 end
