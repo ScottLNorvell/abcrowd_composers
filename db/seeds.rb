@@ -5,3 +5,17 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Subject.delete_all
+Topic.delete_all
+
+['Math', 'Science', 'Literature', 'Vocabulary'].each do |subject|
+	Subject.create title: subject
+end
+
+Subject.all.each do |subject|
+	9.times do |i|
+		subject.topics << Topic.new( title: "Topic #{i}" )
+	end
+	subject.save
+end
