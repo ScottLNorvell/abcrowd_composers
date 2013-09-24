@@ -25,4 +25,5 @@ class AudioSnippet < ActiveRecord::Base
   								:melody_with_lyrics, :refrain, :source, :source_url, :type, 
   								:user_id, :verse, :likes
   belongs_to :lyric_version
+  belongs_to :topic 
 end
