@@ -11,4 +11,6 @@
 
 class Topic < ActiveRecord::Base
   attr_accessible :subject_id, :title
+  belongs_to :subject 
+  has_many :lyrics
 end
