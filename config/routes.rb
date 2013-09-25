@@ -21,7 +21,7 @@ AbcrowdComposers::Application.routes.draw do
   resources :lyrics, only: [:show, :create, :update]
 
   get 'topics/:id/lyrics/new' => 'lyrics#new', as: "new_topic_lyrics"
-
+  
   # get 'lyric/:id' => 'lyrics#show', as: 'lyric'
   # post 'lyrics' => 'lyrics#create', as: 'lyrics'
 
