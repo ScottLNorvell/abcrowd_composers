@@ -13,7 +13,18 @@
 #
 
 class LyricLine < ActiveRecord::Base
-  attr_accessible :likes, :lyric_id, :order_number, :text, :version_number
+	# practical and relational attr's
+	attr_accessible :text, :lyric_id
+	# ordering attrs 
+  attr_accessible :likes, :order_number, :version_number
   belongs_to :lyric
   has_and_belongs_to_many :lyric_versions
+
+  after_initialize :init 
+
+  def init
+  	self.likes ||= 0
+  	self.version_number ||= 0
+  end
+
 end

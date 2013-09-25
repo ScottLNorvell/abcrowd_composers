@@ -17,4 +17,15 @@ class LyricVersion < ActiveRecord::Base
   belongs_to :lyric 
   has_many :audio_snippets
   has_and_belongs_to_many :lyric_lines
+
+  after_initialize :init
+
+  def lines_in_order
+  	lyric_lines.order('order_number')
+  end
+
+  def init
+  	self.likes ||= 1
+  end
+
 end

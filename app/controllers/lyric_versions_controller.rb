@@ -1,7 +1,5 @@
 class LyricVersionsController < ApplicationController
-	def show
-		
-	end
+	
 
 	def create
 		

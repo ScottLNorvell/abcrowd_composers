@@ -16,9 +16,11 @@ class Lyric < ActiveRecord::Base
 
   after_initialize :init 
 
+  def definitive_version
+  	lyric_versions.order('likes DESC').first
+  end
+
   def init
   	self.likes ||= 1
-  	# set classification defaults
-  	
   end
 end

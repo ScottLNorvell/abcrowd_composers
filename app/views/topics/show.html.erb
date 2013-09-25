@@ -1,0 +1,8 @@
+<h2><%= @topic.title %></h2>
+<% if @song %>
+	<h3><%= link_to @song.title, '#' %></h3>
+<% end %>
+
+<% if @lyric %>
+	<h3><%= link_to @lyric.title, lyric_path( @lyric ) %></h3>
+<% end %>

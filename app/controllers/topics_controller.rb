@@ -7,14 +7,18 @@ class TopicsController < ApplicationController
 
 	def show
 		@topic = Topic.find params[:id]
+		@song = @topic.definitive_song
+		@lyric = @topic.definitive_lyric
 		
 	end
 
 	def create
-		
+		topic = Topic.create params[:topic]
+		redirect_to topic_path topic
 	end
 
 	def destroy
-		
+		topic = Topic.find params[:id]
+		topic.destroy
 	end
 end

@@ -7,7 +7,8 @@ class SubjectsController < ApplicationController
 	end
 
 	def create
-		
+		Subject.create params[:subject]
+		redirect_to subjects_path
 	end
 
 	#only as admin
