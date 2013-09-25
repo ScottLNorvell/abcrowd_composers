@@ -1,0 +1,7 @@
+<%= form_for @lyric_line, remote: true do |f| %>
+<%= f.text_field :text %>
+<%= f.hidden_field :version_number, value: @lyric_line.version_number + 1  %>
+<%= f.hidden_field :order_number, value: @lyric_line.order_number  %>
+<%= f.hidden_field :lyric_id, value: @lyric_line.lyric_id  %>
+<%= f.submit %>
+<% end %>

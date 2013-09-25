@@ -1,0 +1,5 @@
+//replace lyric
+
+$('#line-<%= @lyric_line.order_number.to_i %>').html("<%= escape_javascript( render( 'lines/line_form' ) ) %>")
+
+

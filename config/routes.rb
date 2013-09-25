@@ -27,4 +27,41 @@ AbcrowdComposers::Application.routes.draw do
 
   resources :lyric_versions, only: [:show, :update]
 
+  get 'lines/:id' => 'lines#new', as: 'new_line'
+  put 'lines/:id' => 'lines#create', as: 'lyric_line'
+  post 'lines/:id' => 'lines#create' #, as: 'lyric_line'
+
+  get 'lines/:id/next' => 'lines#next_line', as: 'next_line'
+  get 'lines/:id/previous' => 'lines#previous_line', as: 'previous_line'
+
+
 end
+#== Route Map
+# Generated on 25 Sep 2013 12:17
+#
+#             user_session POST   /users/sign_in(.:format)         devise/sessions#create
+#     destroy_user_session DELETE /users/sign_out(.:format)        devise/sessions#destroy
+#            user_password POST   /users/password(.:format)        devise/passwords#create
+#        new_user_password GET    /users/password/new(.:format)    devise/passwords#new
+#       edit_user_password GET    /users/password/edit(.:format)   devise/passwords#edit
+#                          PUT    /users/password(.:format)        devise/passwords#update
+# cancel_user_registration GET    /users/cancel(.:format)          devise/registrations#cancel
+#        user_registration POST   /users(.:format)                 devise/registrations#create
+#    new_user_registration GET    /users/sign_up(.:format)         devise/registrations#new
+#   edit_user_registration GET    /users/edit(.:format)            devise/registrations#edit
+#                          PUT    /users(.:format)                 devise/registrations#update
+#                          DELETE /users(.:format)                 devise/registrations#destroy
+#                     root        /                                subjects#index
+#                 subjects GET    /subjects(.:format)              subjects#index
+#                          POST   /subjects(.:format)              subjects#create
+#                  subject DELETE /subjects/:id(.:format)          subjects#destroy
+#                    topic GET    /topics/:id(.:format)            topics#show
+#                          DELETE /topics/:id(.:format)            topics#destroy
+#                   topics GET    /subject/:id/topics(.:format)    topics#index
+#                          POST   /subject/:id/topics(.:format)    topics#create
+#                   lyrics POST   /lyrics(.:format)                lyrics#create
+#                    lyric GET    /lyrics/:id(.:format)            lyrics#show
+#                          PUT    /lyrics/:id(.:format)            lyrics#update
+#         new_topic_lyrics GET    /topics/:id/lyrics/new(.:format) lyrics#new
+#            lyric_version GET    /lyric_versions/:id(.:format)    lyric_versions#show
+#                          PUT    /lyric_versions/:id(.:format)    lyric_versions#update
