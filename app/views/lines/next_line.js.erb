@@ -1,3 +1,5 @@
+//refactored to 'create'
+
 $('#line-<%= @lyric_line.order_number.to_i %>').html("<%= @lyric_line.text %>")
 $('#next-<%= @lyric_line.order_number.to_i %>').attr("href", "<%= next_line_path( @lyric_line ) %>")
 $('#previous-<%= @lyric_line.order_number.to_i %>').attr("href", "<%= previous_line_path( @lyric_line ) %>")

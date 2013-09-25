@@ -11,10 +11,18 @@
 <br>
 <br>
 <br>
-<%= link_to 'Like', '#' %>
-<p>-- updates 'likes' to definitive version --</p>
-<%= link_to 'Create New Version', '#' %>
-<p>-- this will be a form populated by js that makes new version and redirects to it! --</p>
+<div class="sixteen columns">
+<div id="like" class= 'offset-by-two seven columns alpha'>
+	<%= link_to 'Like', '#' %>
+	<p class="remove-bottom">-- updates 'likes' to definitive version --</p>
+	<p>-- disappears after edits begin --</p>
+</div>
+<div id="new-version" style="visibility: hidden;" class="seven columns omega">
+	<%= link_to 'Create New Version', '#' %>
+	<p class="remove-bottom">-- appears after edits begin --</p>
+	<p>-- this will be a form populated by js that makes new version and redirects to it! --</p>
+</div>
+</div>
 <%= link_to 'Submit Audio for this Lyric', '#' %>
 <p>-- updates boosts likes and submits new song to lyric version --</p>
 <%= link_to 'New Lyric', new_topic_lyrics_path( @lyric.topic_id ) %>

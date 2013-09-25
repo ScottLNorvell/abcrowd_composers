@@ -1,7 +1,7 @@
 module LyricFun
 	
 	def make_lines(text, lyric_version)
-		lines = text.split /\r\n|\r|\n/
+		lines = text.split( /\r\n|\r|\n/ )		
 		i = 100
 		lines.each do |line|
 			lyric_version.lyric_lines << LyricLine.new( text: line, 
@@ -10,6 +10,12 @@ module LyricFun
 			i += 100
 		end
 		lyric_version.save
+	end
+
+	def get_next_version(lyric_line)
+		versions = LyricLine.where("lyric_id = #{lyric_line.lyric_id} and order_number = #{lyric_line.order_number}")
+		version_numbers = versions.map { |version| version.version_number }
+		version_numbers.max + 1
 	end
 	
 end
