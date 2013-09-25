@@ -9,8 +9,16 @@
 #
 
 class Lyric < ActiveRecord::Base
-  attr_accessible :topic_id, :title
+  attr_accessible :topic_id, :title, :likes
   has_many :lyric_versions
   has_many :lyric_lines
   belongs_to :topic
+
+  after_initialize :init 
+
+  def init
+  	self.likes ||= 1
+  	# set classification defaults
+  	
+  end
 end

@@ -38,7 +38,7 @@ subj_titles.each do |subj_title|
 		i += 100
 	end
 
-	lyric.save
+	lyric_version.save
 	
 end
 

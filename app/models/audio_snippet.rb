@@ -19,13 +19,13 @@
 #  updated_at         :datetime         not null
 #
 
-## ********** Need TITLE *******************
+## 
 class AudioSnippet < ActiveRecord::Base
   # divide into scores for organization purposes
   # relationship id's
   attr_accessible :topic_id, :user_id, :lyric_version_id
   # scores for classification purposes
-  attr_accessible :refrain,  :melody, :melody_with_lyrics, :verse
+  attr_accessible :refrain, :melody, :melody_with_lyrics, :verse
   # scores for ranking
   attr_accessible :completion_score, :likes
   # general qualities								

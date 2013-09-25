@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130924212913) do
+ActiveRecord::Schema.define(:version => 20130925011948) do
 
   create_table "audio_snippets", :force => true do |t|
     t.string   "type"
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(:version => 20130924212913) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "title"
+    t.float    "likes"
   end
 
   create_table "subjects", :force => true do |t|
