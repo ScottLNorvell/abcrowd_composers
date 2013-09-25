@@ -1,14 +1,25 @@
 
 <div class="one column">
-	<%= link_to "<<", previous_line_path( line )  %>
+
+	<%= link_to "<<", previous_line_path( line ), 
+				id: "previous-#{line.order_number.to_i}", 
+				remote: true  %>
+
 </div>
 
 <div class="six columns" id="line-<%= line.order_number.to_i %>" >
-	<%= render partial: 'lines/line_link', locals: { line: line } %>
+
+	<%= render partial: 'lines/line_link', 
+			   locals: { line: line } %>
+
 </div>
 
 <div class="one column">
-	<%= link_to ">>", next_line_path( line ) %>
+
+	<%= link_to ">>", next_line_path( line ), 
+				id: "next-#{line.order_number.to_i}" , 
+				remote: true %>
+
 </div>
 <br class="clear">
 
