@@ -1,9 +1,22 @@
 
-<h2><%= @lyric.title %></h2>
-<h3><%= @lyric_version.title %></h3>
-<% @lyric_lines.each do |line| %>
-	<p><%= line.text %></p>
-<% end %>
 
+
+<h2><%= @lyric.title %></h2>
+<p>- DEFINITIVE VERSION -</p>
+<h3><%= @lyric_version.title %></h3>
+
+<%= render partial: 'shared/lyric_lines', locals: { lyric_lines: @lyric_lines } %>
+
+
+<br>
+<br>
+<br>
+<%= link_to 'Like', '#' %>
+<p>-- updates 'likes' to definitive version --</p>
+<%= link_to 'Create New Version', '#' %>
+<p>-- this will be a form populated by js that makes new version and redirects to it! --</p>
+<%= link_to 'Submit Audio for this Lyric', '#' %>
+<p>-- updates boosts likes and submits new song to lyric version --</p>
 <%= link_to 'New Lyric', new_topic_lyrics_path( @lyric.topic_id ) %>
+<p>-- Creates <strong>ENTIRELY NEW</strong> lyric --</p>
 

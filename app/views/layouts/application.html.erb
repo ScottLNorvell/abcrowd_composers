@@ -1,3 +1,5 @@
+<% provide :heading, get_heading %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,11 +9,27 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<div class="container">
 	<!-- will style this later -->
+	<nav class="sixteen columns">
+		<%= link_to 'a link', '#' %>
+		|
+		<%= link_to 'another link', '#' %>
+		|
+		<%= link_to 'yet another', '#' %>
+	</nav>
+	<br class="clear">
+	<div class="sixteen columns">
+		<heading><h2><%= yield :heading %></h2></heading>
+	</div>
+	<div class="sixteen columns">
 	<p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+	</div>
+	<br class="clear">
 
-<%= yield %>
+	<%= yield %>
 
+	</div>
 </body>
 </html>

@@ -4,7 +4,14 @@ class SubjectsController < ApplicationController
 	def index
 		@subjects = Subject.all 
 		@subject = Subject.new
+		session[:subject] = session[:topic] = nil
 	end
+
+	# def show
+	# 	@subject = Subject.find params[:id]
+	# 	@topics = @subject.topics.all
+	# 	@topic = @subject.topics.new
+	# end
 
 	def create
 		Subject.create params[:subject]

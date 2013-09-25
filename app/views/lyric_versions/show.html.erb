@@ -1,0 +1,7 @@
+<h2><%= @lyric.title %></h2>
+<h3><%= @lyric_version.title %></h3>
+
+<%= render partial: 'shared/lyric_lines', locals: { lyric_lines: @lyric_lines } %>
+
+<%= link_to 'New Lyric', new_topic_lyrics_path( @lyric.topic_id ) %>
+
