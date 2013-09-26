@@ -17,7 +17,7 @@ class Lyric < ActiveRecord::Base
   after_initialize :init 
 
   def definitive_version
-  	lyric_versions.order('likes DESC').first
+  	lyric_versions.order('likes').first
   end
 
   def init
