@@ -75,12 +75,12 @@ class LinesController < ApplicationController
 
 	private
 
-		def dump_line(lyric_line, update = true)
+		def dump_line(lyric_line)
 			@lyric_line = lyric_line
 
 			respond_to do |format|
 				format.html { redirect_to request.referer }
-				format.js { render update ? 'update' : 'create' }
+				format.js { render 'update' }
 			end
 		end
 
