@@ -1,4 +1,7 @@
 
+<%= hidden_field_tag "placement[second]", line.order_number  %>
+
+</form>
 <div class="one column">
 
 	<%= link_to "<<", previous_line_path( line ), 
@@ -21,5 +24,17 @@
 				remote: true %>
 
 </div>
-<br class="clear">
 
+<br class="clear">
+<form id="order-<%= line.order_number.to_i %>" action="<%= insert_line_path line %>" data-remote="true">
+<div class="offset-by-two four columns insert-link" >
+	<small>
+		<%= link_to '[insert line]', '#', :onclick=> "$('#order_#{line.order_number.to_i}').submit()" %>
+	</small>
+</div>
+<%= hidden_field_tag "placement[first]", line.order_number  %>
+<%= hidden_field_tag "lyric_id", line.lyric_id %>
+
+
+
+<br class="clear">

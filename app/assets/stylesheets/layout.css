@@ -111,6 +111,20 @@ a:hover {
 	color: #999999;
 }
 
+.insert-link {
+	opacity: 0;
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	-ms-transition: all .5s;
+	-o-transition: all .5s;
+	transition: all .5s;
+}
+
+.insert-link:hover {
+	opacity: 1;
+}
+
+
 /* #Media Queries
 ================================================== */
 

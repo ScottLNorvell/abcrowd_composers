@@ -17,5 +17,11 @@ module LyricFun
 		version_numbers = versions.map { |version| version.version_number }
 		version_numbers.max + 1
 	end
+
+	def get_middle_value(first, second)
+
+		first += (second - first)/2
+
+	end
 	
 end

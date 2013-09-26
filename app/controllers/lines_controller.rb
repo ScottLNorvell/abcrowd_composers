@@ -20,6 +20,10 @@ class LinesController < ApplicationController
 		dump_line lyric_line
 	end
 
+	def insert_line
+		
+	end
+
 	def next_line
 
 		current_line = LyricLine.find params[:id]

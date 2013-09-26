@@ -11,13 +11,10 @@ class LyricVersionsController < ApplicationController
 
 	def create
 		lyric_version = LyricVersion.new params[:lyric_version]
-
 		lyric_version.lyric_line_ids = params[:lyric_lines]
-
+		lyric_version.title = "#{current_user.email.split('@')[0].capitalize}'s version"
 		lyric_version.save
-
 		redirect_to lyric_version_path lyric_version
-
 	end
 
 	def update
@@ -26,9 +23,7 @@ class LyricVersionsController < ApplicationController
 
 	def like
 		@lyric_version = LyricVersion.find params[:id]
-		
 		@lyric_version.likes += 1
-
 		@lyric_version.save
 	end
 

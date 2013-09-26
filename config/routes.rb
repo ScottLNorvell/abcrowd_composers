@@ -26,6 +26,7 @@ AbcrowdComposers::Application.routes.draw do
   put 'lines/:id' => 'lines#create', as: 'lyric_line'
   post 'lines/:id' => 'lines#create' #, as: 'lyric_line'
 
+  get 'lines/:id/insert_line' => 'lines#insert_line', as: 'insert_line'
   get 'lines/:id/next' => 'lines#next_line', as: 'next_line'
   get 'lines/:id/previous' => 'lines#previous_line', as: 'previous_line'
 
