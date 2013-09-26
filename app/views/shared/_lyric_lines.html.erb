@@ -1,28 +1,27 @@
 
+<div id="entity-0" >
 
 
-
-
-
-
-
-
-
-
-
-
-<form id="order-0" action="<%= insert_line_path lyric_lines[0] %>" data-remote="true" >
 <div class="offset-by-two four columns insert-link" >
-	<small>
-		<%= submit_tag '[insert line]' %>
-	</small>
+	<div id="form-0">
+
+	<!-- insert form -->
+	<%= render partial: 'shared/insert_form',
+			   locals: { line: lyric_lines.first,
+			   			 first: 0,
+			   			 second: lyric_lines.first.order_number } %>
+
+	</div>
 </div>
-<%= hidden_field_tag "placement[first]", 0  %>
-<%= hidden_field_tag "lyric_id", lyric_lines[0].lyric_id %>
+
 <br class="clear">
 
+
+</div>
+
+
 <% lyric_lines.each do |line| %>
-	<%= render partial: 'shared/line', locals: { line: line } %>
+	<%= render partial: 'shared/line', 
+			   locals: { line: line, lyric_lines: lyric_lines } %>
 <% end %>
 
-</form>

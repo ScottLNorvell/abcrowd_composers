@@ -23,8 +23,8 @@ AbcrowdComposers::Application.routes.draw do
   post 'lyric_versions/:id/like' => 'lyric_versions#like', as: 'like_lyric_version'
 
   get 'lines/:id' => 'lines#new', as: 'new_line'
-  put 'lines/:id' => 'lines#create', as: 'lyric_line'
-  post 'lines/:id' => 'lines#create' #, as: 'lyric_line'
+  put 'lines/:id' => 'lines#update', as: 'lyric_line'
+  post 'lines/' => 'lines#create', as: 'lyric_lines'
 
   get 'lines/:id/insert_line' => 'lines#insert_line', as: 'insert_line'
   get 'lines/:id/next' => 'lines#next_line', as: 'next_line'

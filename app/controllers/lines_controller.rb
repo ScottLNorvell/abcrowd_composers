@@ -1,5 +1,5 @@
 class LinesController < ApplicationController
-	before_filter :authenticate_user!
+	#before_filter :authenticate_user!
 	
 	include LyricFun
 
@@ -10,7 +10,7 @@ class LinesController < ApplicationController
 		dump_form lyric_line
 	end 
 
-	def create
+	def update
 		lyric_line = LyricLine.new params[:lyric_line]
 
 		lyric_line.version_number = get_next_version( lyric_line )
@@ -20,8 +20,32 @@ class LinesController < ApplicationController
 		dump_line lyric_line
 	end
 
+	def create
+		lyric_line = LyricLine.new params[:lyric_line]
+
+		lyric_line.version_number = get_next_version( lyric_line )
+
+		lyric_line.save
+
+		# this should dump whole new line
+
+		dump_line lyric_line #, false
+
+	end
+
 	def insert_line
-		
+		@first = params[:placement]['first'].to_f
+
+		@second = params[:placement]['second'].to_f
+
+		@new_order_number = @first + ( @second - @first ) / 2
+
+		@lyric_id = params[:lyric_id]
+
+		@lyric_line = LyricLine.new lyric_id: @lyric_id, order_number: @new_order_number
+
+		@new = true
+
 	end
 
 	def next_line
@@ -51,12 +75,12 @@ class LinesController < ApplicationController
 
 	private
 
-		def dump_line(lyric_line)
+		def dump_line(lyric_line, update = true)
 			@lyric_line = lyric_line
 
 			respond_to do |format|
 				format.html { redirect_to request.referer }
-				format.js { render 'create' }
+				format.js { render update ? 'update' : 'create' }
 			end
 		end
 

@@ -14,8 +14,12 @@ module LyricFun
 
 	def get_next_version(lyric_line)
 		versions = LyricLine.where("lyric_id = #{lyric_line.lyric_id} and order_number = #{lyric_line.order_number}")
-		version_numbers = versions.map { |version| version.version_number }
-		version_numbers.max + 1
+		if versions.any?
+			version_numbers = versions.map { |version| version.version_number }
+			version_numbers.max + 1
+		else
+			0
+		end
 	end
 
 	def get_middle_value(first, second)

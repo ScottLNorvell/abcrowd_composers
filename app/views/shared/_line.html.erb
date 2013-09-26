@@ -1,40 +1,60 @@
+<div id="entity-<%= line.order_number.to_i %>" >
 
-<%= hidden_field_tag "placement[second]", line.order_number  %>
+	<div class="one column">
+		<!-- PREVIOUS: previous-order_number -->
+		<% if @new %>
+			<%= link_to "<<", "#", 
+					id: "previous-#{line.order_number.to_i}", 
+					remote: true  %>
+		<% else %>
+			<%= link_to "<<", previous_line_path( line ), 
+					id: "previous-#{line.order_number.to_i}", 
+					remote: true  %>
+		<% end %>
+	</div>
+	
+	<!-- LINE: line-order_number -->
+	<div class="six columns" id="line-<%= line.order_number.to_i %>" >
+		<% if @new %>
+			<%= render partial: 'lines/line_form',
+					   locals: { lyric_line: line } %>
+		<% else %>
+			<%= render partial: 'lines/line_link', 
+					   locals: { line: line } %>
+		<% end %>
+	</div>
 
-</form>
-<div class="one column">
+	<div class="one column">
+		<!-- NEXT: next-order_number -->
+		<% if @new %>
+			<%= link_to ">>", "#", 
+					id: "next-#{line.order_number.to_i}" , 
+					remote: true %>
+		<% else %>
+			<%= link_to ">>", next_line_path( line ), 
+					id: "next-#{line.order_number.to_i}" , 
+					remote: true %>
+		<% end %>
 
-	<%= link_to "<<", previous_line_path( line ), 
-				id: "previous-#{line.order_number.to_i}", 
-				remote: true  %>
+	</div>
+
+	<br class="clear">
+
+	<div class="offset-by-two four columns insert-link" >
+
+		<div id="form-<%= line.order_number.to_i %>">
+
+		<!-- insert form -->
+		<%= render partial: 'shared/insert_form',
+				   locals: { line: line,
+				   			 first: line.order_number,
+				   			 second: @second || get_second_line( lyric_lines, line ) } %>
+		</div>
+
+	</div>
+
+	<br class="clear">
 
 </div>
 
-<div class="six columns" id="line-<%= line.order_number.to_i %>" >
 
-	<%= render partial: 'lines/line_link', 
-			   locals: { line: line } %>
-
-</div>
-
-<div class="one column">
-
-	<%= link_to ">>", next_line_path( line ), 
-				id: "next-#{line.order_number.to_i}" , 
-				remote: true %>
-
-</div>
-
-<br class="clear">
-<form id="order-<%= line.order_number.to_i %>" action="<%= insert_line_path line %>" data-remote="true">
-<div class="offset-by-two four columns insert-link" >
-	<small>
-		<%= link_to '[insert line]', '#', :onclick=> "$('#order_#{line.order_number.to_i}').submit()" %>
-	</small>
-</div>
-<%= hidden_field_tag "placement[first]", line.order_number  %>
-<%= hidden_field_tag "lyric_id", line.lyric_id %>
-
-
-
-<br class="clear">

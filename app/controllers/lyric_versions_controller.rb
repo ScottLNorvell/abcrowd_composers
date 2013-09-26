@@ -1,5 +1,5 @@
 class LyricVersionsController < ApplicationController
-	before_filter :authenticate_user!, only: [:create, :update, :like] 
+	before_filter :authenticate_user!, only: [:create, :update] 
 	
 
 
@@ -24,7 +24,11 @@ class LyricVersionsController < ApplicationController
 	def like
 		@lyric_version = LyricVersion.find params[:id]
 		@lyric_version.likes += 1
-		@lyric_version.save
+		if @lyric_version.save
+			render 'like'
+		else
+			render nothing: true
+		end
 	end
 
 end

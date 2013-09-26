@@ -1,0 +1,47 @@
+
+<div class="row entity-<%= line.order_number %>" >
+
+<div class="one column">
+
+	<%= link_to "<<", previous_line_path( line ), 
+				id: "previous-#{line.order_number.to_i}", 
+				remote: true  %>
+
+</div>
+
+<div class="six columns" id="line-<%= line.order_number.to_i %>" >
+
+	<%= render partial: 'lines/line_link', 
+			   locals: { line: line } %>
+
+</div>
+
+<div class="one column">
+
+	<%= link_to ">>", next_line_path( line ), 
+				id: "next-#{line.order_number.to_i}" , 
+				remote: true %>
+
+</div>
+
+<br class="clear">
+<div class="offset-by-two four columns insert-link" >
+
+<form id="order-<%= line.order_number.to_i %>" action="<%= insert_line_path line %>" data-remote="true">
+
+<%= hidden_field_tag "lyric_id", line.lyric_id %>
+
+<%= hidden_field_tag "placement[first]", line.order_number  %>
+<%= hidden_field_tag "placement[second]", get_second_line( lyric_lines, line )  %>
+	<small>
+		<%= submit_tag '[insert line]' %>
+	</small>
+
+</form>
+</div>
+
+</div>
+
+
+<br class="clear">
+

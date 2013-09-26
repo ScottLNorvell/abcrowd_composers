@@ -1,2 +1,24 @@
-console.log('inserting a line!!!')
+// *insert line-entity after entity-first.to_i
+// *@new will be true
+// *insert form hidden element into new version form (id will be blank)
+// *replace form-first with new insert_form
+//      first: first, second: new_order_number
+// '<%=  %>'
+
+
+var first = '<%= @first.to_i %>'
+var first_val = '<%= @first %>'
+var new_order_number = '<%= @new_order_number %>'
+var line_entity = '<%= escape_javascript( render partial: "shared/line", locals: { line: @lyric_line } ) %>'
+
+
+$('#entity-' + first).after(line_entity)
+$('#form-' + first + " .second").attr('value', new_order_number);
+$('#form-hidden-' + first).after('<%= escape_javascript( hidden_field_tag "lyric_lines[]", "", id: "form-hidden-#{@lyric_line.order_number.to_i}" )%>')
+
+// console.log('inserting a line!!!')
+// console.log('first: '+ first)
+// console.log('first_val: '+ first_val)
+// console.log('new_order_number: '+ new_order_number)
+// console.log('line_entity: '+ line_entity)
 
