@@ -5,6 +5,6 @@ var line_entity = '<%= escape_javascript( render partial: "shared/line", locals:
 
 
 $('#entity-' + first).after(line_entity)
-$('#form-' + first + " .second").attr('value', new_order_number);
+//$('#form-' + first + " .second").attr('value', new_order_number);
 $('#form-hidden-' + first).after('<%= escape_javascript( hidden_field_tag "lyric_lines[]", "", id: "form-hidden-#{@lyric_line.order_number.to_i}" )%>')
 

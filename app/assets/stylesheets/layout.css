@@ -124,6 +124,17 @@ a:hover {
 	opacity: 1;
 }
 
+/* #Misc
+================================================== */
+
+.not-a-button input[type='submit'] {
+	background: transparent;
+	padding: 0;
+	border: none;
+	margin: 0 auto;
+	display: inline-block;
+	margin-top: 5px;
+}
 
 /* #Media Queries
 ================================================== */

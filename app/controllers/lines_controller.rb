@@ -17,6 +17,8 @@ class LinesController < ApplicationController
 
 		lyric_line.save
 
+		@first = params[:first]
+
 		dump_line lyric_line
 	end
 
@@ -27,10 +29,22 @@ class LinesController < ApplicationController
 
 		lyric_line.save
 
+		@first = params[:first]
+
+		p params
 		# this should dump whole new line
 
 		dump_line lyric_line #, false
 
+	end
+
+	def cancel
+		if params[:id] != 'new'
+			lyric_line = LyricLine.find params[:id]
+			dump_line lyric_line
+		else
+			@order_number = params[:order_number]
+		end
 	end
 
 	def insert_line
@@ -76,11 +90,16 @@ class LinesController < ApplicationController
 	private
 
 		def dump_line(lyric_line)
-			@lyric_line = lyric_line
+			if lyric_line.text.length > 2
 
-			respond_to do |format|
-				format.html { redirect_to request.referer }
-				format.js { render 'update' }
+				@lyric_line = lyric_line
+
+				respond_to do |format|
+					format.html { redirect_to request.referer }
+					format.js { render 'update' }
+				end
+			else
+				render nothing: true
 			end
 		end
 

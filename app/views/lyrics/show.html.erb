@@ -1,33 +1,19 @@
 
 
 
-<h2><%= @lyric.title %></h2>
-<p>- DEFINITIVE VERSION -</p>
-<h3><%= @lyric_version.title %></h3>
+<h2><%= link_to @lyric.title, lyric_path( @lyric ) %></h2>
+<%= form_tag get_lyric_version_path, remote: true do %>
 
-<%= render partial: 'shared/lyric_lines', 
-		   locals: { lyric_lines: @lyric_lines } %>
+<%= select_tag :lyric_version, options_for_select(@versions_for_select) %>
 
+<small class="not-a-button">
+	<%= submit_tag '[go]' %>
+</small> 
 
-<br><br><br>
+<% end %>
 
-<div class="sixteen columns">
-	<div class= 'offset-by-two seven columns alpha'>
-		<%= render partial: 'shared/version_likes', locals: { lyric_version: @lyric_version } %>
-	</div>
+<div id="lyric-version-container">
 
-	<div id="new-version" style="visibility: hidden;" class="seven columns omega">
-		
-		<%= form_tag lyric_versions_path do %>
-			<%= hidden_field_tag 'lyric_id', @lyric_version.lyric_id %>
+<%= render 'shared/lyric_version' %>
 
-			<%= render partial: 'shared/lyric_line_form_vals', locals: { lyric_lines: @lyric_lines } %>
-			<%= submit_tag 'Save this Version' %>
-		<% end %>
-	</div>
 </div>
-<%= link_to 'Submit Audio for this Lyric', '#' %>
-<p>-- updates boosts likes and submits new song to lyric version --</p>
-<%= link_to 'New Lyric', new_topic_lyrics_path( @lyric.topic_id ) %>
-<p>-- Creates <strong>ENTIRELY NEW</strong> lyric --</p>
-

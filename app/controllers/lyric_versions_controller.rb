@@ -9,6 +9,12 @@ class LyricVersionsController < ApplicationController
 		@lyric = @lyric_version.lyric 
 	end
 
+	def showjs
+		@lyric_version = LyricVersion.find params[:lyric_version]
+		@lyric_lines = @lyric_version.lines_in_order
+		@lyric = @lyric_version.lyric 
+	end
+
 	def create
 		lyric = Lyric.find params[:lyric_id] 
 		lyric_version = LyricVersion.new #params[:lyric_version]

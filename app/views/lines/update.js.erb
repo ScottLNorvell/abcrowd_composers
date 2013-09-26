@@ -1,9 +1,11 @@
 //replace text 
 
-$('#line-<%= @lyric_line.order_number.to_i %>').html("<%= @lyric_line.text %>");
-$('#next-<%= @lyric_line.order_number.to_i %>').attr("href", "<%= next_line_path( @lyric_line ) %>");
-$('#previous-<%= @lyric_line.order_number.to_i %>').attr("href", "<%= previous_line_path( @lyric_line ) %>");
-$('#form-hidden-<%= @lyric_line.order_number.to_i %>').attr("value", "<%= @lyric_line.id %>" )
+var order_number = '<%= @lyric_line.order_number.to_i %>'
+
+$('#line-' + order_number).html("<%= @lyric_line.text %>");
+$('#next-' + order_number).attr("href", "<%= next_line_path( @lyric_line ) %>");
+$('#previous-' + order_number).attr("href", "<%= previous_line_path( @lyric_line ) %>");
+$('#form-hidden-' + order_number).attr("value", "<%= @lyric_line.id %>" )
 
 
 $('#like').css({
@@ -13,5 +15,15 @@ $('#like').css({
 $('#new-version').css({
 	visibility: 'visible'
 });
+
+<% if @first %>
+
+var first = '<%= @first.to_i %>'
+
+$('#form-' + first + " .second").attr('value', order_number);
+
+console.log('edit data for first = ' + first)
+
+<% end %>
 
 console.log('updated line')

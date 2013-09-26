@@ -21,6 +21,16 @@ class Lyric < ActiveRecord::Base
     likes.max[1]
   end
 
+  def versions_for_select
+    versions = lyric_versions
+    likes_order = versions.map { |lv| [lv.likes, lv] }
+    likes_order.sort!.reverse!
+    definitive = likes_order.first[1]
+    v_for_select = likes_order.map { |likes, lv| [lv.title, lv.id] }
+    v_for_select[0][0] = '- DEFINITIVE VERSION -'
+    [definitive, v_for_select]
+  end
+
   def init
   	self.likes ||= 1
   end

@@ -21,7 +21,9 @@ AbcrowdComposers::Application.routes.draw do
   resources :lyric_versions, only: [:show, :create, :update]
 
   post 'lyric_versions/:id/like' => 'lyric_versions#like', as: 'like_lyric_version'
+  post 'lyric_version/showjs' => 'lyric_versions#showjs', as: 'get_lyric_version'
 
+  post 'lines/:id/cancel' => 'lines#cancel', as: 'cancel_edit_line'
   get 'lines/:id' => 'lines#new', as: 'new_line'
   put 'lines/:id' => 'lines#update', as: 'lyric_line'
   post 'lines/' => 'lines#create', as: 'lyric_lines'

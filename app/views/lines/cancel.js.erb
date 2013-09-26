@@ -1,0 +1,9 @@
+
+var order_number = '<%= @order_number.to_i %>'
+// var first = '<%= @first.to_i %>'
+// var first_val = '<%= @first %>'
+
+$('#entity-' + order_number).remove()
+$('#form-hidden-' + order_number).remove()
+
+console.log(order_number)

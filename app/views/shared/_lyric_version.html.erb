@@ -1,0 +1,27 @@
+<h3><%= link_to @lyric_version.title, lyric_version_path( @lyric_version ) %></h3>
+
+<%= render partial: 'shared/lyric_lines', 
+		   locals: { lyric_lines: @lyric_lines } %>
+
+
+<br><br><br>
+
+<div class="sixteen columns">
+	<div class= 'offset-by-two seven columns alpha'>
+		<%= render partial: 'shared/version_likes', locals: { lyric_version: @lyric_version } %>
+	</div>
+
+	<div id="new-version" style="visibility: hidden;" class="seven columns omega">
+		
+		<%= form_tag lyric_versions_path do %>
+			<%= hidden_field_tag 'lyric_id', @lyric_version.lyric_id %>
+
+			<%= render partial: 'shared/lyric_line_form_vals', locals: { lyric_lines: @lyric_lines } %>
+			<%= submit_tag 'Save this Version' %>
+		<% end %>
+	</div>
+</div>
+<%= link_to 'Submit Audio for this Lyric', '#' %>
+<p>-- updates boosts likes and submits new song to lyric version --</p>
+<%= link_to 'New Lyric', new_topic_lyrics_path( @lyric.topic_id ) %>
+<p>-- Creates <strong>ENTIRELY NEW</strong> lyric --</p>

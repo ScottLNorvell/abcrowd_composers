@@ -2,5 +2,19 @@
 <%= f.text_field :text, placeholder: 'enter new lyric' %>
 <%= f.hidden_field :order_number, value: lyric_line.order_number  %>
 <%= f.hidden_field :lyric_id, value: lyric_line.lyric_id  %>
-<%= f.submit %>
+<% if @first %>
+	<%= hidden_field_tag :first, @first %>
+<% end %>
+	<%= f.submit %>
+
+<% end %>
+
+<%= form_tag cancel_edit_line_path( lyric_line.id || 'new' ), remote: true do %>
+
+<%= hidden_field_tag :order_number, lyric_line.order_number %>
+
+
+
+<%= submit_tag 'cancel' %>
+
 <% end %>

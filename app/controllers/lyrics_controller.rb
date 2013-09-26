@@ -7,9 +7,8 @@ class LyricsController < ApplicationController
 
 	def show
 		@lyric = Lyric.find params[:id]
-		@lyric_version = @lyric.definitive_version
+		@lyric_version, @versions_for_select = @lyric.versions_for_select
 		@lyric_lines = @lyric_version.lines_in_order
-		@topic = @lyric.topic
 	end
 
 	def new
