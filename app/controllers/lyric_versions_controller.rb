@@ -1,5 +1,8 @@
 class LyricVersionsController < ApplicationController
+	before_filter :authenticate_user!, only: [:create, :update, :like] 
 	
+
+
 	def show
 		@lyric_version = LyricVersion.find params[:id]
 		@lyric_lines = @lyric_version.lines_in_order

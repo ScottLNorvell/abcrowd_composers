@@ -1,0 +1,11 @@
+<%= link_to 'home', '/' %>
+|
+<% if user_signed_in? %>
+<span>you are signed in as <%= current_user.email %></span>
+|
+<%= link_to 'sign out', destroy_user_session_path, method: 'delete' %>
+<% else %>
+<%= link_to 'sign up', user_registration_path %>
+|
+<%= link_to 'sign in', user_session_path %>
+<% end %>

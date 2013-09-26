@@ -56,11 +56,11 @@ nav .nav-link:hover {
 
 }
 
-h1.title {
+.title {
 	color: orange;
 	letter-spacing: 8px;
 	text-transform: uppercase;
-	background-color: grey;
+	background-color: gray;
 	border-top: 3px solid white;
 }
 
@@ -78,6 +78,13 @@ a:hover {
 	margin: 0 auto;
 }
 
+.notice {
+	color: green;
+}
+
+.alert {
+	color: red;
+}
 /* #Page Styles
 ================================================== */
 

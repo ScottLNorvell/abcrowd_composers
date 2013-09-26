@@ -1,4 +1,6 @@
 class LinesController < ApplicationController
+	before_filter :authenticate_user!
+	
 	include LyricFun
 
 

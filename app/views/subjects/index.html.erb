@@ -1,8 +1,13 @@
 <%= render @subjects %>
 
-<h3>New subject:</h3>
-<%= form_for @subject do |f| %>
-	<%= f.label :title %>
-	<%= f.text_field :title %>
-	<%= f.submit %>
+<% if user_signed_in? %>
+
+	<h3>New subject:</h3>
+
+	<%= form_for @subject do |f| %>
+		<%= f.label :title %>
+		<%= f.text_field :title %>
+		<%= f.submit %>
+	<% end %>
+	
 <% end %>

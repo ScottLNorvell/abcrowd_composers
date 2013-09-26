@@ -1,4 +1,7 @@
 class LyricsController < ApplicationController
+	before_filter :authenticate_user!, only: [:new, :update]
+	
+
 	include LyricFun
 
 
