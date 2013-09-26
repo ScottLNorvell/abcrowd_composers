@@ -19,8 +19,7 @@
 	<div id="new-version" style="visibility: hidden;" class="seven columns omega">
 		
 		<%= form_tag lyric_versions_path do %>
-			<%= hidden_field_tag 'lyric_version[lyric_id]', @lyric_version.lyric_id %>
-			<%= hidden_field_tag 'lyric_version[title]', "Function will make new title" %>
+			<%= hidden_field_tag 'lyric_id', @lyric_version.lyric_id %>
 
 			<%= render partial: 'shared/lyric_line_form_vals', locals: { lyric_lines: @lyric_lines } %>
 			<%= submit_tag 'Save this Version' %>
