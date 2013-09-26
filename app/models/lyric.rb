@@ -17,7 +17,8 @@ class Lyric < ActiveRecord::Base
   after_initialize :init 
 
   def definitive_version
-  	lyric_versions.order('likes').first
+  	likes = lyric_versions.map { |lv| [lv.likes, lv] }
+    likes.max[1]
   end
 
   def init
