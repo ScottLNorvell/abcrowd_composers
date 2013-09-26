@@ -1,0 +1,5 @@
+<% lyric_lines.each do |line| %>
+
+<%= hidden_field_tag 'lyric_lines[]', line.id, id: "form-hidden-#{line.order_number.to_i}" %>
+
+<% end %>

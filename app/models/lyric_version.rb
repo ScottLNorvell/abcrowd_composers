@@ -24,6 +24,14 @@ class LyricVersion < ActiveRecord::Base
   	lyric_lines.order('order_number')
   end
 
+  def add_lines(line_ids)
+
+    line_ids.each do |line_id|
+      lyric_lines << LyricLine.find(line_id)
+    end
+    
+  end
+
   def init
   	self.likes ||= 1
   end

@@ -8,20 +8,23 @@
 <%= render partial: 'shared/lyric_lines', locals: { lyric_lines: @lyric_lines } %>
 
 
-<br>
-<br>
-<br>
+<br><br><br>
+
 <div class="sixteen columns">
-<div id="like" class= 'offset-by-two seven columns alpha'>
-	<%= link_to 'Like', '#' %>
-	<p class="remove-bottom">-- updates 'likes' to definitive version --</p>
-	<p>-- disappears after edits begin --</p>
-</div>
-<div id="new-version" style="visibility: hidden;" class="seven columns omega">
-	<%= link_to 'Create New Version', '#' %>
-	<p class="remove-bottom">-- appears after edits begin --</p>
-	<p>-- this will be a form populated by js that makes new version and redirects to it! --</p>
-</div>
+	<div class= 'offset-by-two seven columns alpha'>
+		<%= render partial: 'shared/version_likes', locals: { lyric_version: @lyric_version } %>
+	</div>
+
+	<div id="new-version" style="visibility: hidden;" class="seven columns omega">
+		
+		<%= form_tag lyric_versions_path do %>
+			<%= hidden_field_tag 'lyric_version[lyric_id]', @lyric_version.lyric_id %>
+			<%= hidden_field_tag 'lyric_version[title]', "Function will make new title" %>
+
+			<%= render partial: 'shared/lyric_line_form_vals', locals: { lyric_lines: @lyric_lines } %>
+			<%= submit_tag 'Save this Version' %>
+		<% end %>
+	</div>
 </div>
 <%= link_to 'Submit Audio for this Lyric', '#' %>
 <p>-- updates boosts likes and submits new song to lyric version --</p>

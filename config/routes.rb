@@ -25,7 +25,9 @@ AbcrowdComposers::Application.routes.draw do
   # get 'lyric/:id' => 'lyrics#show', as: 'lyric'
   # post 'lyrics' => 'lyrics#create', as: 'lyrics'
 
-  resources :lyric_versions, only: [:show, :update]
+  resources :lyric_versions, only: [:show, :create, :update]
+
+  post 'lyric_versions/:id/like' => 'lyric_versions#like', as: 'like_lyric_version'
 
   get 'lines/:id' => 'lines#new', as: 'new_line'
   put 'lines/:id' => 'lines#create', as: 'lyric_line'
@@ -34,10 +36,9 @@ AbcrowdComposers::Application.routes.draw do
   get 'lines/:id/next' => 'lines#next_line', as: 'next_line'
   get 'lines/:id/previous' => 'lines#previous_line', as: 'previous_line'
 
-
 end
 #== Route Map
-# Generated on 25 Sep 2013 12:17
+# Generated on 25 Sep 2013 18:39
 #
 #             user_session POST   /users/sign_in(.:format)         devise/sessions#create
 #     destroy_user_session DELETE /users/sign_out(.:format)        devise/sessions#destroy
@@ -63,5 +64,11 @@ end
 #                    lyric GET    /lyrics/:id(.:format)            lyrics#show
 #                          PUT    /lyrics/:id(.:format)            lyrics#update
 #         new_topic_lyrics GET    /topics/:id/lyrics/new(.:format) lyrics#new
+#           lyric_versions POST   /lyric_versions(.:format)        lyric_versions#create
 #            lyric_version GET    /lyric_versions/:id(.:format)    lyric_versions#show
 #                          PUT    /lyric_versions/:id(.:format)    lyric_versions#update
+#                 new_line GET    /lines/:id(.:format)             lines#new
+#               lyric_line PUT    /lines/:id(.:format)             lines#create
+#                          POST   /lines/:id(.:format)             lines#create
+#                next_line GET    /lines/:id/next(.:format)        lines#next_line
+#            previous_line GET    /lines/:id/previous(.:format)    lines#previous_line
