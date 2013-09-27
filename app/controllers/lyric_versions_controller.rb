@@ -7,6 +7,7 @@ class LyricVersionsController < ApplicationController
 		@lyric_version = LyricVersion.find params[:id]
 		@lyric_lines = @lyric_version.lines_in_order
 		@lyric = @lyric_version.lyric 
+		render 'lyrics/show'
 	end
 
 	def showjs

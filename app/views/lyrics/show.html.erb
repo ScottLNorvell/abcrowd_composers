@@ -2,20 +2,18 @@
 
 <div class="offset-by-one eight columns double-bottom">
 	<h2><%= link_to @lyric.title, lyric_path( @lyric ) %></h2>
+	<h5>- a song about <%= @lyric.topic.title %></h5>
 </div>
 
-<div class="offset-by-one eight columns double-bottom">
+<% if @versions_for_select %>
 
-	<%= form_tag get_lyric_version_path, remote: true do %>
+	<div class="offset-by-one eight columns double-bottom">
 
-	<%= select_tag :lyric_version, options_for_select(@versions_for_select) %>
+		<%= render 'shared/lyric_versions_select' %>
 
-	<small class="not-a-button insert-link">
-		<%= submit_tag '[go]' %>
-	</small> 
+	</div>
 
-	<% end %>
-</div>
+<% end %>
 
 <div id="lyric-version-container">
 

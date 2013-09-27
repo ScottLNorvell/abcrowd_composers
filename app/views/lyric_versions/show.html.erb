@@ -1,5 +1,6 @@
 <div class="offset-by-one eight columns double-bottom">
 	<h2><%= link_to @lyric.title, lyric_path( @lyric ) %></h2>
+	<h5>- a song about <%= @lyric.topic.title %></h5>
 </div>
 
 <div id="lyric-version-container">
