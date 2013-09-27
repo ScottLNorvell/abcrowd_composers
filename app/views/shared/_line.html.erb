@@ -3,13 +3,15 @@
 	<div class="one column">
 		<!-- PREVIOUS: previous-order_number -->
 		<% if @new %>
-			<%= link_to "<<", "#", 
+			<%= link_to "", "#", 
 					id: "previous-#{line.order_number.to_i}", 
-					remote: true  %>
+					remote: true,
+					class: 'icon-arrow-left'  %>
 		<% else %>
-			<%= link_to "<<", previous_line_path( line ), 
+			<%= link_to "", previous_line_path( line ), 
 					id: "previous-#{line.order_number.to_i}", 
-					remote: true  %>
+					remote: true,
+					class: 'icon-arrow-left'  %>
 		<% end %>
 	</div>
 	
@@ -27,13 +29,15 @@
 	<div class="one column">
 		<!-- NEXT: next-order_number -->
 		<% if @new %>
-			<%= link_to ">>", "#", 
+			<%= link_to "", "#", 
 					id: "next-#{line.order_number.to_i}" , 
-					remote: true %>
+					remote: true,
+					class: 'icon-arrow-right' %>
 		<% else %>
-			<%= link_to ">>", next_line_path( line ), 
+			<%= link_to "", next_line_path( line ), 
 					id: "next-#{line.order_number.to_i}" , 
-					remote: true %>
+					remote: true,
+					class: 'icon-arrow-right' %>
 		<% end %>
 
 	</div>

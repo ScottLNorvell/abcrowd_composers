@@ -31,9 +31,11 @@ class LinesController < ApplicationController
 	# User 
 	def create
 		text = params[:lyric_line][:text]
+		p params
 		if text.length < 1 || !/\w/.match(text)
 			# don't save
-			render nothing: true
+			@order_number = params[:lyric_line][:order_number]
+			render 'cancel'
 		else
 			lyric_line = LyricLine.new params[:lyric_line]
 

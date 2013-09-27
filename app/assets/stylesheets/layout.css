@@ -19,19 +19,29 @@
 
 /* header */
 
-header {
-	position: relative;
-	text-align: center;
-	height: 500px;
-	background-image: url("http://placekitten.com/960/500");
-	background-size: cover;
-	background-position: center;
-	margin-bottom: 40px;
+h1, h3 {
+	font-family: 'Walter Turncoat', cursive;
 }
 
-#header-content {
-	position: absolute;
-	bottom: 0;
+h4 {
+	font-family: 'Roboto Slab', serif;
+}
+
+
+.a-color {
+	color: red;
+}
+
+.b-color {
+	color: green;
+}
+
+.c-color {
+	color: blue;
+}
+
+nav {
+	font-family: 'Roboto Slab', serif;
 }
 
 nav .nav-link {

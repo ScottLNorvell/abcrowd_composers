@@ -3,7 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>AbcrowdComposers</title>
+  <title>A-B-Crowd Composers</title>
+  <link href='http://fonts.googleapis.com/css?family=Walter+Turncoat|Roboto+Slab' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -16,7 +17,14 @@
 	</nav>
 	<br class="clear">
 	<div class="sixteen columns">
-		<heading><h2><%= yield :heading %></h2></heading>
+		<header>
+			<h1>
+				<i class='icon-music icon-large'></i> 
+				<span class="a-color">A</span>-
+				<span class="b-color">B</span>-
+				<span class="c-color">C</span>rowd Composers
+			</h1>
+		</header>
 	</div>
 	<div class="sixteen columns">
 		<%= render 'layouts/alerts' %>
