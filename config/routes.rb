@@ -32,6 +32,8 @@ AbcrowdComposers::Application.routes.draw do
   get 'lines/:id/next' => 'lines#next_line', as: 'next_line'
   get 'lines/:id/previous' => 'lines#previous_line', as: 'previous_line'
 
+  get 'audio_snippets' => 'audio_snippets#index', as: 'audio_snippets'
+
 end
 #== Route Map
 # Generated on 25 Sep 2013 18:39

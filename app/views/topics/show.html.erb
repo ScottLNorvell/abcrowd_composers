@@ -1,8 +1,21 @@
-<h2><%= @topic.title %></h2>
+<div class="offset-by-one six columns">
+<h3><%= @topic.title %></h3>
 <% if @song %>
-	<h3><%= link_to @song.title, '#' %></h3>
+	<h4>Sounds for <%= @topic.title %></h4>
+	<h5>- <%= link_to @song.title, audio_snippets_path %></h5>
+
+<% else %>
+	<h4>No Audio!</h4>
+	<h5>- <%= link_to 'Submit some Audio', audio_snippets_path %></h5>
+	
 <% end %>
 
 <% if @lyric %>
-	<h3><%= link_to @lyric.title, lyric_path( @lyric ) %></h3>
+	<h4>Lyrics for <%= @topic.title %></h4>
+	<h5>- <%= link_to @lyric.title, lyric_path( @lyric ) %></h5>
+<% else %>
+	<h4>No Lyrics!</h4>
+	<h5>- <%= link_to 'Submit some Audio', audio_snippets_path %></h5>
+	
 <% end %>
+</div>

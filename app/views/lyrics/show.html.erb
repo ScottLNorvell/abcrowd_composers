@@ -1,16 +1,21 @@
 
 
+<div class="offset-by-one eight columns double-bottom">
+	<h2><%= link_to @lyric.title, lyric_path( @lyric ) %></h2>
+</div>
 
-<h2><%= link_to @lyric.title, lyric_path( @lyric ) %></h2>
-<%= form_tag get_lyric_version_path, remote: true do %>
+<div class="offset-by-one eight columns double-bottom">
 
-<%= select_tag :lyric_version, options_for_select(@versions_for_select) %>
+	<%= form_tag get_lyric_version_path, remote: true do %>
 
-<small class="not-a-button">
-	<%= submit_tag '[go]' %>
-</small> 
+	<%= select_tag :lyric_version, options_for_select(@versions_for_select) %>
 
-<% end %>
+	<small class="not-a-button insert-link">
+		<%= submit_tag '[go]' %>
+	</small> 
+
+	<% end %>
+</div>
 
 <div id="lyric-version-container">
 

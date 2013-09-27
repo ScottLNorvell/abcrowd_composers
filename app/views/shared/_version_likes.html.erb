@@ -1,6 +1,7 @@
 <div id="like">
 
-	<p>likes: <span id="likes-count"><%= lyric_version.likes %></span></p>
-	<%= button_to 'Like this!', like_lyric_version_path( lyric_version ), remote: true %>	
-
+	<h2>likes: <span id="likes-count"><%= lyric_version.likes %></span></h2>
+	<small class="not-a-button">
+		<%= button_to '[Like this!]', like_lyric_version_path( lyric_version ), remote: true %>	
+	</small>
 </div>

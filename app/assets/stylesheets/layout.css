@@ -19,11 +19,15 @@
 
 /* header */
 
-h1, h3 {
+/*.column,.columns {
+	background-color: yellow;
+}*/
+
+h1, h3, h5 {
 	font-family: 'Walter Turncoat', cursive;
 }
 
-h4 {
+h4, h2 {
 	font-family: 'Roboto Slab', serif;
 }
 

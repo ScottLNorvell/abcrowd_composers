@@ -1,27 +1,40 @@
-<h3><%= link_to @lyric_version.title, lyric_version_path( @lyric_version ) %></h3>
-
+<div class="offset-by-one eight columns">
+	<h3><%= link_to @lyric_version.title, lyric_version_path( @lyric_version ) %></h3>
+</div>
+<div class="offset-by-one eight columns">
 <%= render partial: 'shared/lyric_lines', 
 		   locals: { lyric_lines: @lyric_lines } %>
+</div>
+
+<div class= 'six columns'>
+	<%= render partial: 'shared/version_likes', locals: { lyric_version: @lyric_version } %>
+</div>
+
+<div id="new-version" style="visibility: hidden;" class="six columns">
+	<h3>You started a new version!</h3>
+	<%= form_tag lyric_versions_path do %>
+		<%= hidden_field_tag 'lyric_id', @lyric_version.lyric_id %>
+
+		<%= render partial: 'shared/lyric_line_form_vals', locals: { lyric_lines: @lyric_lines } %>
+		<small class="not-a-button">
+			<%= submit_tag '[save it]' %>
+		</small>
+	<% end %>
+</div>
+
+<br class="clear">
 
 
-<br><br><br>
 
-<div class="sixteen columns">
-	<div class= 'offset-by-two seven columns alpha'>
-		<%= render partial: 'shared/version_likes', locals: { lyric_version: @lyric_version } %>
+
+
+
+<div class="offset-by-one eight columns">
+	<div class="six columns alpha add-bottom">
+		<%= link_to '[Submit Audio for this Lyric]', audio_snippets_path %>
 	</div>
 
-	<div id="new-version" style="visibility: hidden;" class="seven columns omega">
-		
-		<%= form_tag lyric_versions_path do %>
-			<%= hidden_field_tag 'lyric_id', @lyric_version.lyric_id %>
-
-			<%= render partial: 'shared/lyric_line_form_vals', locals: { lyric_lines: @lyric_lines } %>
-			<%= submit_tag 'Save this Version' %>
-		<% end %>
+	<div class="six columns alpha double-bottom">
+		<%= link_to '[New Lyric]', new_topic_lyrics_path( @lyric.topic_id ) %>
 	</div>
 </div>
-<%= link_to 'Submit Audio for this Lyric', '#' %>
-<p>-- updates boosts likes and submits new song to lyric version --</p>
-<%= link_to 'New Lyric', new_topic_lyrics_path( @lyric.topic_id ) %>
-<p>-- Creates <strong>ENTIRELY NEW</strong> lyric --</p>

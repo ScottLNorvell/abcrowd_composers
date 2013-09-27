@@ -1,14 +1,24 @@
+<div class="offset-by-two fourteen columns double-bottom">
+	<h2>Choose a topic. Help write a song.</h2>
+</div>
+<div class="offset-by-one twelve columns">
+	<p>A-B-Crowd Composers is a Crowd-Sourced platform for Collaboritive Education
+	 through music. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, ducimus, molestiae, sit earum commodi assumenda porro odit blanditiis mollitia nobis nihil quis tenetur odio dignissimos animi dolore veritatis cupiditate quam.</p>
+</div>
+<br class="clear">
 <div class="offset-by-one six columns">
-<%= render @subjects %>
+	<%= render @subjects %>
 </div>
 <% if user_signed_in? %>
-<div class="six columns">
-	<h3>New subject:</h3>
+	<div class="six columns">
+		<h3>New subject:</h3>
 
-	<%= form_for @subject do |f| %>
-		<%= f.label :title %>
-		<%= f.text_field :title %>
-		<%= f.submit %>
-	<% end %>
-</div>
+		<%= form_for @subject do |f| %>
+			<%= f.label :title %>
+			<%= f.text_field :title %>
+			<spall class="not-a-button">
+				<%= f.submit "[create subject]" %>
+			</spall>
+		<% end %>
+	</div>
 <% end %>

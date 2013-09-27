@@ -6,8 +6,9 @@
 <% if @first %>
 	<%= hidden_field_tag :first, @first %>
 <% end %>
-	<%= f.submit %>
-
+	<small class="not-a-button">
+	<%= f.submit '[save edit]' %>
+	</small>
 <% end %>
 
 <%= form_tag cancel_edit_line_path( lyric_line.id || 'new' ), remote: true do %>
@@ -15,7 +16,10 @@
 <%= hidden_field_tag :order_number, lyric_line.order_number %>
 
 
+<small class="not-a-button">
 
-<%= submit_tag 'cancel' %>
+	<%= submit_tag '[cancel]' %>
+	
+</small>
 
 <% end %>

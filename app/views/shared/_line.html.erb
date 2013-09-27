@@ -1,6 +1,6 @@
 <div id="entity-<%= line.order_number.to_i %>" >
 
-	<div class="one column">
+	<div class="one column alpha">
 		<!-- PREVIOUS: previous-order_number -->
 		<% if @new %>
 			<%= link_to "", "#", 
@@ -26,7 +26,7 @@
 		<% end %>
 	</div>
 
-	<div class="one column">
+	<div class="one column omega">
 		<!-- NEXT: next-order_number -->
 		<% if @new %>
 			<%= link_to "", "#", 
@@ -44,7 +44,7 @@
 
 	<br class="clear">
 
-	<div class="offset-by-one six columns insert-link" >
+	<div class="offset-by-one six columns alpha omega insert-link" >
 
 		<div id="form-<%= line.order_number.to_i %>">
 

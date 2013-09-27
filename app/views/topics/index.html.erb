@@ -1,16 +1,24 @@
-<h3>Topics for <%= @subject.title %></h3>
+<div class="offset-by-one six columns">
 
-<%= render @topics %>
+<h3>Topics for <%= @subject.title %>:</h3>
+
+
+	<%= render @topics %>
+</div>
+
 
 <% if user_signed_in? %>
 
-	<h3>New topic:</h3>
+	<div class="six columns">
+		<h3>New topic:</h3>
 
-	<%= form_for @topic do |f| %>
-		<%= f.label :title %>
-		<%= f.text_field :title %>
-		<%= f.hidden_field :subject_id, value: @subject.id %>
-		<%= f.submit %>
-	<% end %>
-
+		<%= form_for @topic do |f| %>
+			<%= f.label :title %>
+			<%= f.text_field :title %>
+			<%= f.hidden_field :subject_id, value: @subject.id %>
+			<spall class="not-a-button">
+				<%= f.submit "[create topic]" %>
+			</spall>
+		<% end %>
+	</div>
 <% end %>
