@@ -1,8 +1,9 @@
 //replace text 
 
 var order_number = '<%= @lyric_line.order_number.to_i %>'
+var line_link = "<%= escape_javascript(render partial: 'lines/line_link', locals: { line: @lyric_line }) %>"
 
-$('#line-' + order_number).html("<%= @lyric_line.text %>");
+$('#line-' + order_number).html(line_link);
 $('#next-' + order_number).attr("href", "<%= next_line_path( @lyric_line ) %>");
 $('#previous-' + order_number).attr("href", "<%= previous_line_path( @lyric_line ) %>");
 $('#form-hidden-' + order_number).attr("value", "<%= @lyric_line.id %>" )
@@ -26,4 +27,4 @@ console.log('edit data for first = ' + first)
 
 <% end %>
 
-console.log('updated line')
+// console.log(line_link)
