@@ -1,0 +1,9 @@
+<%= form_tag get_lyric_version_path, remote: true do %>
+
+<%= select_tag :lyric_version, options_for_select(@versions_for_select) %>
+
+<small class="not-a-button insert-link">
+	<%= submit_tag '[go]' %>
+</small> 
+
+<% end %>

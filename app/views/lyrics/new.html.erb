@@ -15,7 +15,7 @@
 	<%= f.text_field :title %>
 	<%= f.label :text, 'Enter new Lyrics:' %>
 	<%= text_area_tag 'text'  %>
-	<%= f.hidden_field :topic_id, value: @topic_id %>
+	<%= f.hidden_field :topic_id, value: @topic.id %>
 	<small class="not-a-button">
 		<%= f.submit '[create lyric]' %>
 	</small>

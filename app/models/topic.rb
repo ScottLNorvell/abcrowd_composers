@@ -16,10 +16,12 @@ class Topic < ActiveRecord::Base
   has_many :audio_snippets
 
   def definitive_song
+    # might need to be re-written
   	audio_snippets.order('completion_score DESC').first
   end
 
   def definitive_lyric
+    # might need to be re-written
   	lyrics.order('likes DESC').first
   end
 

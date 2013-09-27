@@ -3,7 +3,7 @@ class SubjectsController < ApplicationController
 
 	# show all subjects. 'new' form will be on page as well
 	def index
-		@subjects = Subject.all 
+		@subjects = Subject.alphabetically 
 		@subject = Subject.new
 		session[:subject] = session[:topic] = nil
 	end

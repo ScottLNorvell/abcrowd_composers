@@ -11,4 +11,9 @@
 class Subject < ActiveRecord::Base
   attr_accessible :title
   has_many :topics
+
+  def self.alphabetically
+  	self.order('title')
+  end
+
 end
