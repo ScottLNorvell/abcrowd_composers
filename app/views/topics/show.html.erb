@@ -15,7 +15,7 @@
 	<h5>- <%= link_to @lyric.title, lyric_path( @lyric ) %></h5>
 <% else %>
 	<h4>No Lyrics!</h4>
-	<h5>- <%= link_to 'Submit some Audio', audio_snippets_path %></h5>
+	<h5>- <%= link_to 'Submit a Lyric', new_topic_lyrics_path( @topic ) %></h5>
 	
 <% end %>
 </div>

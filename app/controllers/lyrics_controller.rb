@@ -13,7 +13,7 @@ class LyricsController < ApplicationController
 
 	def new
 		@lyric = Lyric.new
-		@topic_id = params[:id]
+		@topic = Topic.find params[:id]
 	end
 
 	def create
